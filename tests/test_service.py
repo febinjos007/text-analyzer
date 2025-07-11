@@ -27,3 +27,10 @@ def test_analyze_text_neutral_sentiment():
     result = analyze_text(text)
 
     assert result["sentiment"] == "neutral"
+
+
+def test_analyze_text_negation_logic():
+    text = "This is not good"
+    result = analyze_text(text)
+
+    assert result["sentiment"] == "negative"
