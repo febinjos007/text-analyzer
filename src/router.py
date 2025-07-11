@@ -38,7 +38,8 @@ async def analyze_feedback(request: Request):
     # Check for empty input
     if not text:
         raise HTTPException(
-            status_code=HTTPStatus.BAD_REQUEST, detail="Input text cannot be empty"
+            status_code=HTTPStatus.BAD_REQUEST,
+            detail="Input text cannot be empty",
         )
 
     # Then check content type

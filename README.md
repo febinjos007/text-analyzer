@@ -17,7 +17,10 @@
 ---
                                                                                                                     
                                                                                                                        
-This is a FastApi application for analyzing Customer Feedback text
+This is a FastApi application for analyzing Customer Feedback text.
+Given a text the api will check if there are keywords that relate to positive or negative sentiment.
+It will also check for negation logic
+eg: "This is not good" will be analyzed as 'negative' sentiment.
 
 
 ## API Reference
@@ -36,12 +39,18 @@ curl -X POST http://localhost:8000/analyze \
      --data "This is some free-form feedback text!"
 ```
 
-Response 
+Response 200
 ```
 {
   "word_count": 0,
   "most_common_words": [],
   "sentiment": positive, negative or neutral based on the sentence
+}
+```
+Response 400 and 415
+```
+{
+  "detail": ""
 }
 ```
 
@@ -56,9 +65,8 @@ Read-only and fully responsive documentation page for the FastAPI API
 ## Sentiments
 For this app we are using a small set of keywords to identify sentiments. Here is the list
 | Positive  | Negative  |
-|-----------------------------|-----------------------------|
-| "great", "awesome", "excellent"<br>"good", "quick", "easy"<br>"fantastic", "amazing"       
-| "bad", "poor", "slow", "terrible", "awful", "disappointing" |
+|-----------|-----------|
+| "great", "awesome", "excellent"<br>"good", "quick", "easy"<br>"fantastic", "amazing" | "bad", "poor", "slow"<br> "terrible", "awful", "disappointing" |
 
 ## Requirements
 | Package | Description |
@@ -86,7 +94,8 @@ Tests are under the /tests module. We can initiate the test using
 ```bash
   pytest --disable-warnings
 ```
+We can use POSTMAN for testing the endpoint with different free-text and content-types
 
-## Authors
+## Author
 
 - [@febinjose](https://github.com/febinjos007)

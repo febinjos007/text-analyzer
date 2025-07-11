@@ -30,3 +30,10 @@ SENTIMENT_KEYWORDS = {
         "disappointing",
     },
 }
+
+NEGATION_WORDS = {
+    "not",
+    "never",
+    "no",
+    "n't",
+}
